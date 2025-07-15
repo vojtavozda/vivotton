@@ -13,11 +13,18 @@ The MCU which does all the calculations and readouts is **ESP32-S3 N16R8**.
 USB-C input on the side of the box is connected to the **S3**'s integrated USB port. When using **PlatformIO**, following flags should be included in `platformio.ini`:
 
 ```ini
+platform = espressif32
+board = esp32-s3-devkitm-1
+framework = arduino
 build_flags = -DARDUINO_USB_CDC_ON_BOOT=1
 upload_flags = --no-stub
 ```
 
 Programming over UART is also possible and can be done only with an external programmer. The PCB has a 6-pin IDC connector prepared.
+
+#### Upload original file
+
+After playing around you may actually want to upload the original Vivotton firmware. To do so, navigate into `/main` and run `pio run -t nobuild -t upload`.
 
 ## List of peripherals
 
